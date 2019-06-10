@@ -6,8 +6,8 @@
     </div>
     <ul>
       <li class='item border-bottom'
-          v-for="item of recommendList"
-          :key="item">
+          v-for="(item,index) of list"
+          :key="index">
         <div class='item-img-wrapper'>
           <img class='item-img'
                :src="item.imgUrl"
@@ -25,25 +25,8 @@
 // 导入组件
 export default {
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1811/52/b6776b49d27025.jpg_r_640x214_35ae205c.jpg',
-        title: '大连圣亚海洋世界',
-        desc: '浪漫大连首站，浪漫的海洋主题乐园'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1811/52/b6776b49d27025.jpg_r_640x214_35ae205c.jpg',
-        title: '大连圣亚海洋世界',
-        desc: '浪漫大连首站，浪漫的海洋主题乐园'
-      }, {
-        id: '0003',
-        imgUrl: 'http://img1.qunarzz.com/sight/source/1811/52/b6776b49d27025.jpg_r_640x214_35ae205c.jpg',
-        title: '大连圣亚海洋世界',
-        desc: '浪漫大连首站，浪漫的海洋主题乐园'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
@@ -54,16 +37,15 @@ export default {
   line-height: 0.8rem;
   background: #eee;
   text-indent: 0.2rem;
-  margin-top: 0.2rem;
 }
 
 .item-img-wrapper {
   height: 0;
   overflow: hidden;
-  padding-bottom: 33.9%;
+  padding-bottom: 37%;
 
   .item-img {
-    width:100%;
+    width: 100%;
     padding: 0.1rem;
   }
 }

@@ -10,7 +10,7 @@
       <span class='iconfont'>&#xe632;</span>
       输入城市/景点/游玩主题
     </div>
-    <div class="header-right">城市
+    <div class="header-right">{{this.city}}
       <span class='iconfont arrow-icon'>&#xe64a;</span>
     </div>
   </div>
@@ -18,20 +18,25 @@
 <script>
 //导入组件
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+  }
 }
 </script>
 <style lang="stylus" scoped>
 @import '~styles/varibies.styl';
+
 .header {
   line-height: 0.86rem;
   display: flex;
-  background:$bgColor;
+  background: $bgColor;
   color: #fff;
 
   .header-left {
     width: 0.64rem;
-    margin-left:.2rem;
+    margin-left: 0.2rem;
+
     .back-icon {
       text-align: center;
       font-size: 0.4rem;
