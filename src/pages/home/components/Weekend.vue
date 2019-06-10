@@ -10,8 +10,7 @@
           :key="index">
         <div class='item-img-wrapper'>
           <img class='item-img'
-               :src="item.imgUrl"
-               alt="">
+               :src="item.imgUrl">
         </div>
         <div class='item-info'>
           <p class='item-title'>{{item.title}}</p>

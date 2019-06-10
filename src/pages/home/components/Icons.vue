@@ -1,6 +1,7 @@
 <template>
   <div class='icons'>
-    <mt-swipe class='icons-swiper'>
+    <mt-swipe :auto="0"
+              class='icons-swiper'>
       <mt-swipe-item class='icons-swiper'
                      v-for="(page,index) of pages"
                      :key='index'>
