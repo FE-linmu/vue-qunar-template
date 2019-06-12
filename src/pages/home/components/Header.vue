@@ -20,10 +20,15 @@
 </template>
 <script>
 //导入组件
+import { mapState, mapGetters } from 'vuex'
 export default {
   name: 'HomeHeader',
   props: {
     city: String
+  },
+  computed: {
+    ...mapState(['city']),
+    ...mapGetters(['doubleCity'])
   }
 }
 </script>
@@ -31,7 +36,7 @@ export default {
 @import '~styles/varibies.styl';
 
 .header {
-  line-height:$headerHeight;
+  line-height: $headerHeight;
   display: flex;
   background: $bgColor;
   color: #fff;
@@ -59,8 +64,9 @@ export default {
   }
 
   .header-right {
-    width: 1.24rem;
+    min-width: 1.04rem;
     text-align: center;
+    padding: 0 0.1rem;
 
     .arrow-icon {
       font-size: 0.2rem;

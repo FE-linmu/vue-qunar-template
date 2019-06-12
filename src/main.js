@@ -4,6 +4,7 @@ import Vue from 'vue'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import App from './App'
+import store from './store'
 import router from './router'
 import fastClick from 'fastclick'
 import 'styles/reset.css'
@@ -18,6 +19,7 @@ Vue.use(MintUI)
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     App
   },
