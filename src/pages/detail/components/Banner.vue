@@ -10,7 +10,7 @@
       </div>
     </div>
     <fade-animation>
-      <common-gallary :imgs='imgs'
+      <common-gallary :imgs='bannerImgs'
                       v-show='showGallary'
                       @close='handleGalleryClose'></common-gallary>
     </fade-animation>

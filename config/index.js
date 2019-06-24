@@ -17,6 +17,9 @@ module.exports = {
           '^/api': '/static/mock'
         }
       }
+      // '/api': {
+      //   target: 'http://localhost:80',
+      // }
     },
 
     // Various Dev Server settings

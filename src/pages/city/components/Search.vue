@@ -40,10 +40,13 @@ export default {
       timer: null
     }
   },
+  created () {
+    console.log(11111)
+  },
   methods: {
     handleCityClick (city) {
-      // this.$store.commit('changeCity', city),
-      this.changeCity(city)
+      this.$store.commit('changeCity', city)
+      // this.changeCity(city)
       this.$router.push('/')
     },
     ...mapMutations(['changeCity'])
