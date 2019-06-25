@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0}
+        ul{list-style: none}
+    </style>
+</head>
+<body>
+    <ul>
+    </ul>
+    <script>
+        var ul,img;
+        var heightList=[];
+        var position=2;
+        const NUM=5;
+        init();
+        function init() {
+//            获取ul
+            ul=document.querySelector("ul");
+//             根据常量NUM，创建li
+            for(var i=0;i<NUM;i++){
+                var li=document.createElement("li");
+//                设置li左浮动
+                li.style.float="left";
+//                设置每个li的左边距是10像素
+                li.style.marginLeft="10px";
+//                设置每个li的宽度，是当前页面宽度-margin（因为页面可能会发生边距改变，因此会加大margin）*li的数量
+//                上面得到的宽度除以li的数量，就会得到每个li的宽度
+                li.style.width=(document.documentElement.clientWidth-18*NUM)/NUM+"px";
+                li.style.border="1px solid #000000";
+//                让高度数组初始值都设置为0
+                heightList.push(0);
+//                将li放在ul中
+                ul.appendChild(li);
+            }
+//            新建图片
+            img=new Image();
+//            侦听图片加载
+            img.addEventListener("load",loadHandler);
+//            加载第一张图片
+            img.src="img/"+position+"-.jpg";
+            document.addEventListener("scroll",scrollHandler);
+        }
+
+        function loadHandler(e) {
+//            复制被加载进来的图片元素
+            var imgClone=this.cloneNode(false);
+//            寻找高度数组中最小的值
+            var min=Math.min.apply(null,heightList);
+//            寻找这个最小值对应的索引值
+            var index=heightList.indexOf(min);
+//            在ul中的最小高度的li中添加这个图片
+            ul.children[index].appendChild(imgClone);
+//            设置这个图片的宽度是它父级li的宽度(不带边线)
+            imgClone.style.width=imgClone.parentElement.clientWidth+"px";
+//            设置高度数组中对应的值是当前添加图片后li的新高度
+            heightList[index]=imgClone.parentElement.offsetHeight;
+//          当文档的有滚动条内容的高度减去当前已经滚动的高度，这个值是当前屏幕高度的4倍以上时，跳出，不再继续加载
+            if((document.documentElement.scrollHeight-document.documentElement.scrollTop)/document.documentElement.clientHeight>4){
+                return;
+            }
+            continueLoad();
+        }
+
+        function scrollHandler(e) {
+//            当文档的滚动内容-滚动条的位置，这个值比当前屏幕的2倍小的时候，我们继续向后加载
+            if((document.documentElement.scrollHeight-document.documentElement.scrollTop)/document.documentElement.clientHeight<2){
+                continueLoad();
+            }
+        }
+
+        function continueLoad() {
+            position++;
+//            如果大于79是，重新设为2
+            if(position>79){
+                position=2;
+            }
+            img.src="img/"+position+"-.jpg";
+
+        }
+    </script>
+</body>
+</html>
