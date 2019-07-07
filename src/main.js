@@ -11,7 +11,13 @@ import 'babel-polyfill'
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont/iconfont.css'
-
+import preview from 'vue-photo-preview'
+import 'vue-photo-preview/dist/skin.css'
+var options = {
+  fullscreenEl: false, //关闭全屏按钮
+  clickToCloseNonZoomable: true,
+}
+Vue.use(preview, options)
 Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(MintUI)

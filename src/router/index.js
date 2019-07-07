@@ -20,10 +20,18 @@ export default new Router({
     path: '/detail/:id',
     name: 'Detail',
     component: () => import('@/pages/detail/Detail')
-  },{
-    path:'/search',
-    name:'Search',
-    component: () => import('./search.vue')
+  }, {
+    path: '/search',
+    name: 'Search',
+    component: () => import('../test/search.vue')
+  }, {
+    path: '/photo',
+    name: 'Photo',
+    component: () => import('../test/PhotoPreview.vue')
+  }, {
+    path: '/tab',
+    name: 'Photo',
+    component: () => import('../test/TabSwitch.vue')
   }],
   scrollBehavior(to, from, savePostion) {
     return {
