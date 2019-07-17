@@ -63,6 +63,11 @@ export default {
         localStorage.removeItem('PHOTO_PEVIEW_STATE')
         this.$preview.self.close()
       }
+      document.getElementsByClassName('pswp__container')[0].onclick = () => {
+        localStorage.removeItem('PHOTO_PEVIEW_STATE')
+        console.log(22222222)
+        this.$preview.self.close()
+      }
     })
     // this.$preview.on('close', () => {//close只是众多事件名的其中一个，更多请查看文档
     //   console.log('图片查看器被关闭')

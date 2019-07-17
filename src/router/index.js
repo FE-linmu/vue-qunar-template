@@ -8,31 +8,41 @@ Vue.use(Router)
 
 export default new Router({
   routes: [{
-    path: '/',
-    name: 'Home',
-    component: () => import('@/pages/home/Home')
+      path: '/demo',
+      name: 'Demo',
+      component: () => import('@/pages/Demo')
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: () => import('@/pages/home/Home')
 
-  }, {
-    path: '/city',
-    name: 'City',
-    component: () => import('@/pages/city/City')
-  }, {
-    path: '/detail/:id',
-    name: 'Detail',
-    component: () => import('@/pages/detail/Detail')
-  }, {
-    path: '/search',
-    name: 'Search',
-    component: () => import('../test/search.vue')
-  }, {
-    path: '/photo',
-    name: 'Photo',
-    component: () => import('../test/PhotoPreview.vue')
-  }, {
-    path: '/tab',
-    name: 'Photo',
-    component: () => import('../test/TabSwitch.vue')
-  }],
+    }, {
+      path: '/city',
+      name: 'City',
+      component: () => import('@/pages/city/City')
+    }, {
+      path: '/detail/:id',
+      name: 'Detail',
+      component: () => import('@/pages/detail/Detail')
+    }, {
+      path: '/search',
+      name: 'Search',
+      component: () => import('../test/search.vue')
+    }, {
+      path: '/photo',
+      name: 'Photo',
+      component: () => import('../test/PhotoPreview.vue')
+    }, {
+      path: '/tab',
+      name: 'Photo',
+      component: () => import('../test/TabSwitch.vue')
+    }, {
+      path: '/',
+      name: 'AuthCode',
+      component: () => import('../test/AuthCode.vue')
+    },
+  ],
   scrollBehavior(to, from, savePostion) {
     return {
       x: 0,
