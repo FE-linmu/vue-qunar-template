@@ -13,12 +13,21 @@
 </template>
 <script>
 import axios from 'axios'
+import Method from '../common/gtfMethods.js'
 //导入组件
 export default {
   name: 'App',
   data () {
     return {
-      num: ''
+      num: '',
+      arr: [
+        { date: '2017', name: 'xiaoming', sex: 'man' },
+        { date: '2017', name: 'xiaohong', sex: 'woman' },
+        { date: '2017', name: 'xiaolan', sex: 'man' },
+        { date: '2018', name: 'xiaoming', sex: 'man' },
+        { date: '2018', name: 'xiaohong', sex: 'woman' },
+        { date: '2018', name: 'xiaolan', sex: 'man' }
+      ]
     }
   },
   watch: {
@@ -33,6 +42,24 @@ export default {
           })
       }
     }
+  },
+  created () {
+    console.log(Method.catchSameProperty(this.arr, 'sex'))
+    
+  },
+  methods: {
+    // catchSameProperty (arr, prop) {
+    //   var newArr = []
+    //   var obj = {}
+    //   for (var i of arr) {
+    //     if (!obj[i[prop]]) {
+    //       obj[i[prop]] = [].concat(i)
+    //     } else {
+    //       obj[i[prop]].push(i)
+    //     }
+    //   }
+    //   return obj
+    // }
   }
 }
 </script>
