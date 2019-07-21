@@ -38,9 +38,13 @@ export default new Router({
       name: 'Photo',
       component: () => import('../test/TabSwitch.vue')
     }, {
-      path: '/',
+      path: '/authCode',
       name: 'AuthCode',
       component: () => import('../test/AuthCode.vue')
+    }, {
+      path: '/',
+      name: 'RangeSlide',
+      component: () => import('../test/RangeSlide.vue')
     },
   ],
   scrollBehavior(to, from, savePostion) {
